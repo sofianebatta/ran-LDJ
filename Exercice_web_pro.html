@@ -1,0 +1,1248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0051)https://amelafejza.github.io/INFONUM-CSS/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+            <title>CSS</title>
+                                            <link type="text/css" rel="stylesheet" href="./CSS_files/style-cours-IC-IUT2.css">
+                                            <style data-styled="" data-styled-version="4.4.1"></style><style type="text/css">.apexcharts-canvas {
+  position: relative;
+  user-select: none;
+  /* cannot give overflow: hidden as it will crop tooltips which overflow outside chart area */
+}
+
+
+/* scrollbar is not visible by default for legend, hence forcing the visibility */
+.apexcharts-canvas ::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 6px;
+}
+
+.apexcharts-canvas ::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+
+.apexcharts-inner {
+  position: relative;
+}
+
+.apexcharts-text tspan {
+  font-family: inherit;
+}
+
+.legend-mouseover-inactive {
+  transition: 0.15s ease all;
+  opacity: 0.20;
+}
+
+.apexcharts-series-collapsed {
+  opacity: 0;
+}
+
+.apexcharts-tooltip {
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px -4px #999;
+  cursor: default;
+  font-size: 14px;
+  left: 62px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 12;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-tooltip.apexcharts-active {
+  opacity: 1;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-tooltip.apexcharts-theme-light {
+  border: 1px solid #e3e3e3;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.apexcharts-tooltip.apexcharts-theme-dark {
+  color: #fff;
+  background: rgba(30, 30, 30, 0.8);
+}
+
+.apexcharts-tooltip * {
+  font-family: inherit;
+}
+
+
+.apexcharts-tooltip-title {
+  padding: 6px;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {
+  background: #ECEFF1;
+  border-bottom: 1px solid #ddd;
+}
+
+.apexcharts-tooltip.apexcharts-theme-dark .apexcharts-tooltip-title {
+  background: rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid #333;
+}
+
+.apexcharts-tooltip-text-value,
+.apexcharts-tooltip-text-z-value {
+  display: inline-block;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.apexcharts-tooltip-text-z-label:empty,
+.apexcharts-tooltip-text-z-value:empty {
+  display: none;
+}
+
+.apexcharts-tooltip-text-value,
+.apexcharts-tooltip-text-z-value {
+  font-weight: 600;
+}
+
+.apexcharts-tooltip-marker {
+  width: 12px;
+  height: 12px;
+  position: relative;
+  top: 0px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.apexcharts-tooltip-series-group {
+  padding: 0 10px;
+  display: none;
+  text-align: left;
+  justify-content: left;
+  align-items: center;
+}
+
+.apexcharts-tooltip-series-group.apexcharts-active .apexcharts-tooltip-marker {
+  opacity: 1;
+}
+
+.apexcharts-tooltip-series-group.apexcharts-active,
+.apexcharts-tooltip-series-group:last-child {
+  padding-bottom: 4px;
+}
+
+.apexcharts-tooltip-series-group-hidden {
+  opacity: 0;
+  height: 0;
+  line-height: 0;
+  padding: 0 !important;
+}
+
+.apexcharts-tooltip-y-group {
+  padding: 6px 0 5px;
+}
+
+.apexcharts-tooltip-box, .apexcharts-custom-tooltip {
+  padding: 4px 8px;
+}
+
+.apexcharts-tooltip-boxPlot {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.apexcharts-tooltip-box>div {
+  margin: 4px 0;
+}
+
+.apexcharts-tooltip-box span.value {
+  font-weight: bold;
+}
+
+.apexcharts-tooltip-rangebar {
+  padding: 5px 8px;
+}
+
+.apexcharts-tooltip-rangebar .category {
+  font-weight: 600;
+  color: #777;
+}
+
+.apexcharts-tooltip-rangebar .series-name {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.apexcharts-xaxistooltip {
+  opacity: 0;
+  padding: 9px 10px;
+  pointer-events: none;
+  color: #373d3f;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+  background: #ECEFF1;
+  border: 1px solid #90A4AE;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-xaxistooltip.apexcharts-theme-dark {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.apexcharts-xaxistooltip:after,
+.apexcharts-xaxistooltip:before {
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.apexcharts-xaxistooltip:after {
+  border-color: rgba(236, 239, 241, 0);
+  border-width: 6px;
+  margin-left: -6px;
+}
+
+.apexcharts-xaxistooltip:before {
+  border-color: rgba(144, 164, 174, 0);
+  border-width: 7px;
+  margin-left: -7px;
+}
+
+.apexcharts-xaxistooltip-bottom:after,
+.apexcharts-xaxistooltip-bottom:before {
+  bottom: 100%;
+}
+
+.apexcharts-xaxistooltip-top:after,
+.apexcharts-xaxistooltip-top:before {
+  top: 100%;
+}
+
+.apexcharts-xaxistooltip-bottom:after {
+  border-bottom-color: #ECEFF1;
+}
+
+.apexcharts-xaxistooltip-bottom:before {
+  border-bottom-color: #90A4AE;
+}
+
+.apexcharts-xaxistooltip-bottom.apexcharts-theme-dark:after {
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-xaxistooltip-bottom.apexcharts-theme-dark:before {
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-xaxistooltip-top:after {
+  border-top-color: #ECEFF1
+}
+
+.apexcharts-xaxistooltip-top:before {
+  border-top-color: #90A4AE;
+}
+
+.apexcharts-xaxistooltip-top.apexcharts-theme-dark:after {
+  border-top-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-xaxistooltip-top.apexcharts-theme-dark:before {
+  border-top-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-xaxistooltip.apexcharts-active {
+  opacity: 1;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-yaxistooltip {
+  opacity: 0;
+  padding: 4px 10px;
+  pointer-events: none;
+  color: #373d3f;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+  background: #ECEFF1;
+  border: 1px solid #90A4AE;
+}
+
+.apexcharts-yaxistooltip.apexcharts-theme-dark {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.apexcharts-yaxistooltip:after,
+.apexcharts-yaxistooltip:before {
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.apexcharts-yaxistooltip:after {
+  border-color: rgba(236, 239, 241, 0);
+  border-width: 6px;
+  margin-top: -6px;
+}
+
+.apexcharts-yaxistooltip:before {
+  border-color: rgba(144, 164, 174, 0);
+  border-width: 7px;
+  margin-top: -7px;
+}
+
+.apexcharts-yaxistooltip-left:after,
+.apexcharts-yaxistooltip-left:before {
+  left: 100%;
+}
+
+.apexcharts-yaxistooltip-right:after,
+.apexcharts-yaxistooltip-right:before {
+  right: 100%;
+}
+
+.apexcharts-yaxistooltip-left:after {
+  border-left-color: #ECEFF1;
+}
+
+.apexcharts-yaxistooltip-left:before {
+  border-left-color: #90A4AE;
+}
+
+.apexcharts-yaxistooltip-left.apexcharts-theme-dark:after {
+  border-left-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-yaxistooltip-left.apexcharts-theme-dark:before {
+  border-left-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-yaxistooltip-right:after {
+  border-right-color: #ECEFF1;
+}
+
+.apexcharts-yaxistooltip-right:before {
+  border-right-color: #90A4AE;
+}
+
+.apexcharts-yaxistooltip-right.apexcharts-theme-dark:after {
+  border-right-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-yaxistooltip-right.apexcharts-theme-dark:before {
+  border-right-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-yaxistooltip.apexcharts-active {
+  opacity: 1;
+}
+
+.apexcharts-yaxistooltip-hidden {
+  display: none;
+}
+
+.apexcharts-xcrosshairs,
+.apexcharts-ycrosshairs {
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-xcrosshairs.apexcharts-active,
+.apexcharts-ycrosshairs.apexcharts-active {
+  opacity: 1;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-ycrosshairs-hidden {
+  opacity: 0;
+}
+
+.apexcharts-selection-rect {
+  cursor: move;
+}
+
+.svg_select_boundingRect, .svg_select_points_rot {
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+}
+.apexcharts-selection-rect + g .svg_select_boundingRect,
+.apexcharts-selection-rect + g .svg_select_points_rot {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.apexcharts-selection-rect + g .svg_select_points_l,
+.apexcharts-selection-rect + g .svg_select_points_r {
+  cursor: ew-resize;
+  opacity: 1;
+  visibility: visible;
+}
+
+.svg_select_points {
+  fill: #efefef;
+  stroke: #333;
+  rx: 2;
+}
+
+.apexcharts-svg.apexcharts-zoomable.hovering-zoom {
+  cursor: crosshair
+}
+
+.apexcharts-svg.apexcharts-zoomable.hovering-pan {
+  cursor: move
+}
+
+.apexcharts-zoom-icon,
+.apexcharts-zoomin-icon,
+.apexcharts-zoomout-icon,
+.apexcharts-reset-icon,
+.apexcharts-pan-icon,
+.apexcharts-selection-icon,
+.apexcharts-menu-icon,
+.apexcharts-toolbar-custom-icon {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  line-height: 24px;
+  color: #6E8192;
+  text-align: center;
+}
+
+.apexcharts-zoom-icon svg,
+.apexcharts-zoomin-icon svg,
+.apexcharts-zoomout-icon svg,
+.apexcharts-reset-icon svg,
+.apexcharts-menu-icon svg {
+  fill: #6E8192;
+}
+
+.apexcharts-selection-icon svg {
+  fill: #444;
+  transform: scale(0.76)
+}
+
+.apexcharts-theme-dark .apexcharts-zoom-icon svg,
+.apexcharts-theme-dark .apexcharts-zoomin-icon svg,
+.apexcharts-theme-dark .apexcharts-zoomout-icon svg,
+.apexcharts-theme-dark .apexcharts-reset-icon svg,
+.apexcharts-theme-dark .apexcharts-pan-icon svg,
+.apexcharts-theme-dark .apexcharts-selection-icon svg,
+.apexcharts-theme-dark .apexcharts-menu-icon svg,
+.apexcharts-theme-dark .apexcharts-toolbar-custom-icon svg {
+  fill: #f3f4f5;
+}
+
+.apexcharts-canvas .apexcharts-zoom-icon.apexcharts-selected svg,
+.apexcharts-canvas .apexcharts-selection-icon.apexcharts-selected svg,
+.apexcharts-canvas .apexcharts-reset-zoom-icon.apexcharts-selected svg {
+  fill: #008FFB;
+}
+
+.apexcharts-theme-light .apexcharts-selection-icon:not(.apexcharts-selected):hover svg,
+.apexcharts-theme-light .apexcharts-zoom-icon:not(.apexcharts-selected):hover svg,
+.apexcharts-theme-light .apexcharts-zoomin-icon:hover svg,
+.apexcharts-theme-light .apexcharts-zoomout-icon:hover svg,
+.apexcharts-theme-light .apexcharts-reset-icon:hover svg,
+.apexcharts-theme-light .apexcharts-menu-icon:hover svg {
+  fill: #333;
+}
+
+.apexcharts-selection-icon,
+.apexcharts-menu-icon {
+  position: relative;
+}
+
+.apexcharts-reset-icon {
+  margin-left: 5px;
+}
+
+.apexcharts-zoom-icon,
+.apexcharts-reset-icon,
+.apexcharts-menu-icon {
+  transform: scale(0.85);
+}
+
+.apexcharts-zoomin-icon,
+.apexcharts-zoomout-icon {
+  transform: scale(0.7)
+}
+
+.apexcharts-zoomout-icon {
+  margin-right: 3px;
+}
+
+.apexcharts-pan-icon {
+  transform: scale(0.62);
+  position: relative;
+  left: 1px;
+  top: 0px;
+}
+
+.apexcharts-pan-icon svg {
+  fill: #fff;
+  stroke: #6E8192;
+  stroke-width: 2;
+}
+
+.apexcharts-pan-icon.apexcharts-selected svg {
+  stroke: #008FFB;
+}
+
+.apexcharts-pan-icon:not(.apexcharts-selected):hover svg {
+  stroke: #333;
+}
+
+.apexcharts-toolbar {
+  position: absolute;
+  z-index: 11;
+  max-width: 176px;
+  text-align: right;
+  border-radius: 3px;
+  padding: 0px 6px 2px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.apexcharts-menu {
+  background: #fff;
+  position: absolute;
+  top: 100%;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 3px;
+  right: 10px;
+  opacity: 0;
+  min-width: 110px;
+  transition: 0.15s ease all;
+  pointer-events: none;
+}
+
+.apexcharts-menu.apexcharts-menu-open {
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-menu-item {
+  padding: 6px 7px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.apexcharts-theme-light .apexcharts-menu-item:hover {
+  background: #eee;
+}
+
+.apexcharts-theme-dark .apexcharts-menu {
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .apexcharts-canvas:hover .apexcharts-toolbar {
+    opacity: 1;
+  }
+}
+
+.apexcharts-datalabel.apexcharts-element-hidden {
+  opacity: 0;
+}
+
+.apexcharts-pie-label,
+.apexcharts-datalabels,
+.apexcharts-datalabel,
+.apexcharts-datalabel-label,
+.apexcharts-datalabel-value {
+  cursor: default;
+  pointer-events: none;
+}
+
+.apexcharts-pie-label-delay {
+  opacity: 0;
+  animation-name: opaque;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+.apexcharts-canvas .apexcharts-element-hidden {
+  opacity: 0;
+}
+
+.apexcharts-hide .apexcharts-series-points {
+  opacity: 0;
+}
+
+.apexcharts-gridline,
+.apexcharts-annotation-rect,
+.apexcharts-tooltip .apexcharts-marker,
+.apexcharts-area-series .apexcharts-area,
+.apexcharts-line,
+.apexcharts-zoom-rect,
+.apexcharts-toolbar svg,
+.apexcharts-area-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events,
+.apexcharts-line-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events,
+.apexcharts-radar-series path,
+.apexcharts-radar-series polygon {
+  pointer-events: none;
+}
+
+
+/* markers */
+
+.apexcharts-marker {
+  transition: 0.15s ease all;
+}
+
+@keyframes opaque {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/* Resize generated styles */
+
+@keyframes resizeanim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.resize-triggers {
+  animation: 1ms resizeanim;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.resize-triggers,
+.resize-triggers>div,
+.contract-trigger:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.resize-triggers>div {
+  background: #eee;
+  overflow: auto;
+}
+
+.contract-trigger:before {
+  width: 200%;
+  height: 200%;
+}</style></head>
+    <body lang="fr-FR" dir="LTR">
+        <title>HTML &amp; CSS</title>
+        <subtitle>Information-Communication</subtitle>
+        <subtitle>
+            
+<!--
+            Vous pouvez trouver les slides en cliquant <a href= "https://amelafejza.github.io/cours_LDJ_remise_a_niveau_html.pdf">ici</a>.
+            <br/>
+            
+            Vous pouvez trouver les slides pour CSS en cliquant <a href= "https://amelafejza.github.io/slides_css/css_slides.pdf">ici</a>.
+            <br/>
+            
+            
+        Tutoriel avec des exercices intéressants <a href= "https://mescours.ovh/ex11.html">ici</a>.
+            <br/>
+            
+            <p style="color:gray"> <u>Exercice:</u> Rédigez votre CV en utilisant uniquement html et css. Vous pouvez commencer par une page d'accueil. Vous devez également créer différentes pages .html pour votre expérience, votre éducation, etc. et les rendre accessibles en cliquant sur du texte dans la page d'accueil. <p>
+            <br/>
+-->
+<!--
+            Problèmes, erreurs, fautes d'orthographes à signaler
+            <A HREF="mailto:amela.fejza@inria.fr" target="blank">ici</A></Subtitle>
+-->
+
+    
+
+<!--
+        <H4>Quel est l'objectif de ce cours ?</H4>
+
+        <p>L'objectif de ce cours est de connaître, comprendre et
+            savoir utiliser les outils de conception de sites Web.</p>
+-->
+        
+
+
+<!--
+
+                            <H1>Les systèmes de gestion de contenu</H1>
+                            <P>
+                            Généralement appelés par leur accronyme anglais CMS (<I>Content
+                                Management System</I>). Comme leur nom l'indique, les utilisateurs
+                            n'ont qu'à gérer le contenu et ne se préoccupent pas du stockage
+                            ni de la cohérence graphique. Pour un utilisateur lambda, il s'agit
+                            d'un site Web pour lequel il peut créer et/ou éditer des pages.
+                            </P>
+-->
+                           <!-- <UL>
+                                        <LI><P>Connectez-vous
+                                            sur l' <A HREF="http://intratek-08.iut2.upmf-grenoble.fr/index.php" target="blank">intranet</A> et allez dans <I>enseignement&gt;informatique&gt;Web</I></P>
+                                            <LI><P>
+                                                Créez une nouvelle page</P>
+                                                <LI><P>
+                                                    Dans le formulaire, mettez un titre à votre page (<A HREF="petitFormatage.html" target="blank"><I>Mon
+                                                        petit formatage</I></A>)</P>
+                                                    <LI><P>
+                                                        Observer les différents menus dans la barre et formatez votre page
+                                                        pour qu'elle soit le plus proche possible de la page Web réalisée
+                                                        précédemment</P>
+                                                        <LI><P>
+                                                            Passez du mode code html au mode wysiwyg. Modifiez le code HTML et
+                                                            vérifiez le résultat</P>
+                                                            <LI><P>
+                                                                Publiez votre page</P>
+                                                                </UL>-->
+<!--
+                            <div class="visu">
+                                <H3>En savoir plus</H3>
+                                <P>
+                                Il existe des milliers de CMS. Bien entendu tous n'ont pas les mêmes
+                                fonctionnalités, la même simplicité, les mêmes usages le même
+                                prix et ils ne sont pas tous très populaires. Le site
+                                <A HREF="http://www.cmsmatrix.org/"  target="blank">http://www.cmsmatrix.org/</A>
+                                permettait d'en tester plus de 1300 début septembre 2018.</P>
+                            </div>
+
+                            <H1>Weebly</H1>
+
+                                <P>
+                                Weebly est l'un des nombreux CMS que l'on peut trouver sur le Web. Il
+                                a deux principaux avantages, il offre un hébergement gratuit du site
+                                et son utilisation WISIWYG est particulièrement poussée.</P>
+                                <P>
+                                C'est avec ce CMS que vous allez concevoir un site Web.
+                                Ici, nous allons réaliser un petit site Web sur le département
+                                Information-Communication.</P>
+                                <P>
+                                <B>Rappel</B> : votre navigateur <B>doit être</B> Mozilla Firefox</P>
+                                <UL>
+                                    <LI>Allez
+                                        sur le site de Weebly et cliquez sur "S'inscrire" (coin en haut à droite de l'écran)  (<A HREF="https://www.weebly.com/fr"  target="blank">https://www.weebly.com/fr</A>)</LI>
+                                        <p><IMG SRC="weebly0.png" NAME="images2" ALIGN=center WIDTH=50%  BORDER=0></p>
+                                    <LI>Remplissez le formulaire </LI>
+                                        <p><IMG SRC="weebly1.png" NAME="formulaireInscription" ALIGN=center WIDTH=50%  BORDER=0></p>
+
+                                    <LI>Une fois la fenêtre "Quel genre de site souhaitez-vous créer ?", sélectionnez "J'ai juste besoin d'un site Web." </LI>
+                                        <p><IMG SRC="weebly_choix_site_2019.png" NAME="choixTypeSiteWeb" ALIGN=center WIDTH=60%  BORDER=1></p>
+                                    <LI>Sélectionnez un modèle autre que "Sol de terrace" et après cliquer sur "Commencer l'édition"</LI>
+                                        <p><IMG SRC="weebly4.png" NAME="formulaireInscription" ALIGN=center WIDTH=60%  BORDER=0></p>
+                                    <LI>Choississez
+                                        un sous-domaine que vous nommerez ic suivi de votre nom de famille
+                                        et de votre prénom et de ".weebly.com". Choisir le sous-domaine gratuit proposé suite au clic sur le bouton rechercher.</LI>
+                                        <p><IMG SRC="weebly_choix_sous_domaine_2019.png" NAME="choixSousDomaine" ALIGN=center WIDTH=60%  BORDER=0></p>
+                                    </UL>
+                                <P>
+                                Vous êtes maintenant sur la page d'édition.
+                                Donnez un titre à votre site (<I>Site Web IC</I>). C'est ici que vous
+                                allez construire les pages de votre site.
+                                Weebly permet au créateur du site web de glisser-déposer des blocs contenant des fonctionnalités ou sections.
+                                Ainsi, il faudra décider ce que l'on veut ajouter ainsi que son emplacement sur la page.
+                                La plupart de modèles ont déjà un format prédefini (couleurs, polices, etc..).
+                                Toutefois, ils permettent de les modifier pour avoir un résultat plus personalisé.
+                                Par défault, elle travaille d'abord sur la page d'accueil, c'est à dire la première page que les personnes vont regarder.
+                                Pour modifier une autre, il faut aller sur l'onglet "Pages" (Menu supérieur),
+                                cliquer sur celle à éditer et cliquer encore une fois sur "Construire" (Menu supérieur) pour retourner sur l'espace d'édition. </P>
+</UL>
+<LI>Les options pour modifier le contenu du site se trouvent au côté gauche. Prenez un peu du temps pour les explorer</LI>
+                                                    <p><IMG SRC="editionWeebly.png" NAME="formulaireInscription" ALIGN=center WIDTH=50%  BORDER=0></p>
+
+<P>Nous allons créer ici un
+                                petit site sur le département Information-Communication.  </P>
+
+                                <P>
+                                Il faut définir l'ensemble des pages dont on aura besoin et leur
+                                organisation</P>
+                                <UL>
+                                    <LI>Définissez
+                                        l’arborescence pour qu'elle soit identique à celle ci-dessous (carré rouge).
+                                        Ici, le site est composé de trois pages principales (accueil,
+                                        Première année, Deuxième année) et de six &quot;sous-pages
+                                        (faire glisser les pages vers la droite pour en faire
+                                        dessous-pages).</LI>
+                                </UL>
+
+                                <IMG SRC="arborescenceWeebly.png" NAME="images3" ALIGN=CENTER WIDTH=100% BORDER=0>
+
+                                    <UL>
+
+                                        <P>Il faut
+                                        maintenant mettre du contenu dans ces pages, éditer le site. Nous
+                                        commençons par la page d'accueil.</LI>
+                                        <LI>Allez sur la
+                                            page d'accueil</LI>
+                                        <LI>Le ménu à gauche vous permet de déposer des éléments sur
+                                            votre page (texte en colonnes, image…)</LI>
+
+                                        <LI>Réalisez la page d'accueil suivante contenant les informations de l'image.
+                                          Vous devez chercher le logo du Dépt. Infocom de l'IUT2 et de rajouter le lien hypertexte <A HREF="https://iut2.univ-grenoble-alpes.fr/"  target="blank">https://iut2.univ-grenoble-alpes.fr/</A>  au mot "ici"
+                                            (site de l'IUT). Le formatage peut varier selon le modèle élu </LI>
+<IMG SRC="accueilWeebly.png" NAME="images3" ALIGN=CENTER WIDTH=50% BORDER=1>
+
+
+                                                    <LI>Vous
+                                            cliquerez sur «&nbsp;publier&nbsp;» (Coin supérieur droit) pour mettre votre site à
+                                            jour. Vous pouvez visiter le site et voir le résultat de vos modifications</LI>
+                                    </UL>
+
+                                        Après la page d'accueil, nous passons à la sous-page «&nbsp;Nous
+                                        contacter&nbsp;» où nous allons mettre le formulaire suivant</P>
+                                        <UL>
+                                            <LI>Insérer un
+                                                élément formulaire dans la page (<I>Menu côté gauche > Basique >
+                                                    &gt; Formulaires de contact</I>)
+                                            </LI>
+                                        </UL>
+
+                                        <IMG SRC="formulaireWeebly.png" NAME="images3" ALIGN=CENTER WIDTH=50% BORDER=1>
+
+                                            <UL>
+                                                <LI>
+                                                    Vérifiez que le formulaire est envoyé à votre adresse (cliquer sur bouton
+                                                    form options) et vous rajouterez « vous êtes intéressé(e)
+                                                    par » en indiquant les différentes modalités (vous
+                                                    utiliserez options boutons</LI>
+                                                <LI>
+                                                    Dans les autres pages insérez des galeries de photo, des vidéos,
+                                                    des sondages en ligne en formulant des questions avec des cases à
+                                                    cocher et des boutons d’options...</LI>
+                                            </UL>
+-->
+
+                                            <h1>Les CSS</h1>
+
+<!--
+                                            <P>Dès 1994, il est devenu clair que maintenir l'identité graphique
+                                            d'un site Web était compliqué. Imaginez le reponsable du site Web
+                                            d'un journal devoir systématiquement insérer le titre du journal,
+                                            régler les couleurs, la taille des titres et du texte.
+                                            </P>
+                                            <UL>
+                                                <LI>Dans Weebly, changez de thème</LI>
+                                                <LI>Qu'observez-vous ?</LI>
+                                            </UL>
+                                            <P>Le contenu n'a pas été modifié alors que la charte graphique
+                                            est complètement différente.</P>
+                                            <P>Comment expliquer cette possibilité alors que nous avons vu que
+                                            le HTML permet
+                                            de décrire à la fois le contenu et l'apparence d'une page Web ?
+                                            Simplement en enlevant du code HTML les informations du formatage.
+                                            Ainsi sont nées les CSS (Cascading Style Sheets : Feuilles de style
+                                            en cascade)</P>
+
+                                            <div class="visu">
+                                                <H3>À retenir</H3>
+                                                <P>
+                                                Les CSS jouent un rôle équivalent au masque d'une présentation et
+                                                aux styles d'un traitement de texte.</P>
+                                                <P>
+                                                Au HTML le soin de gérer le <B>contenu </B>, le<B> fond</B></P>
+                                                <P>
+                                                Au CSS le soin de gérer le <B>formatage</B>, la <B>forme</B></P>
+                                            </div>
+-->
+
+                                            <ul>
+<!--
+                                                <LI>
+                                                    Laissez de côté Weebly et revenez dans le système de fichier de
+                                                    votre ordinateur.</LI>
+-->
+                                                <li>Créez un répertoire (un dossier) appelé <i>test-CSS</i>.</li>
+                                                <li>Ouvrez un nouveau fichier avec Notepad++ et copiez le contenu de <a href="https://amelafejza.github.io/INFONUM-CSS/poeme.txt"> ce
+                                                    fichier</a>. </li>
+                                                <li>Le fichier créé doit ressembler à <a href="https://amelafejza.github.io/INFONUM-CSS/Tests-css.html"> ce
+                                                    fichier</a> après l'avoir ouvert à l'aide du navigateur Firefox.
+                                                    Lisez le poème et observez
+                                                    sa forme.</li>
+                                                <li>Dans
+                                                    le répertoire où vous avez créé ce fichier, créez un
+                                                    second fichier, appelez-le <i>style.css</i> et
+                                                    recopiez</li>
+                                            </ul>
+
+                                            <img src="./CSS_files/premier-css.png" name="premier-css" align="CENTER" width="30%" border="0">
+
+                                                <p>Maintenant, nous allons indiquer dans
+                                                le fichier HTML (test-CSS.html) où aller chercher la feuille de
+                                                style</p>
+                                                <ul>
+                                                    <li>Dans la tête du fichier HTML,
+                                                        insérez</li>
+                                                </ul>
+
+
+                                                <img src="./CSS_files/en-tete-css.png" name="en-tete-css" align="CENTER" width="45%" border="0">
+
+                                                    <ul>
+                                                        <li>Visualisez le résultat dans votre
+                                                            navigateur, observez sa forme. Quelle est la différence ?</li>
+                                                    </ul>
+                                                    <p>Pourquoi ? Analysons ce que nous
+                                                    avons écrit dans le fichier CSS : <i>body </i> est
+                                                    l'élément HTML que l'on souhaite formater et entre les accolades
+                                                    <i>background-color,</i> la
+                                                    couleur du fond qui sera donc vert clair.</p>
+
+                                                    <div class="visu">
+                                                        <h3>À retenir</h3>
+                                                        <p>
+                                                        Les éléments d'un fichier CSS ont la syntaxe suivante :</p>
+                                                        <p>
+                                                        <font color="#00ae00">sélecteur</font>
+                                                        {
+                                                        <br>
+                                                        <font color="#ff0000">propriété<sub>1</sub></font>
+                                                        : <font color="#2323dc">valeur<sub>1</sub></font>;
+                                                        <br>
+                                                        <font color="#ff0000">propriété<sub>2</sub></font>:
+                                                        <font color="#2323dc">valeur<sub>2</sub></font>;
+                                                        <br>
+                                                        ...
+                                                        <br>
+                                                        <font color="#ff0000">propriété<sub>N</sub></font>
+                                                        : <font color="#2323dc">valeur<sub>N</sub></font>;
+                                                        <br>
+                                                        }
+                                                        </p>
+                                                        <p>
+                                                        <font color="#00ae00">selecteur</font> :
+                                                        la balise HTML à laquelle on souhaite appliquer la propriété</p>
+                                                        <p>
+                                                        <font color="#ff0000">propriété</font>
+                                                        : la propriété</p>
+                                                        <p><font color="#2323dc">
+                                                            valeur</font>
+                                                        : la valeur que l'on souhaite donner à la propriété</p>
+                                                        <p>On trouve facilement sur le Web la liste des
+                                                        propriétés et des valeurs (par exemple
+                                                        <a href="https://openclassrooms.com/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1608902-memento-des-proprietes-css" target="blank">le site OpenClassrooms</a> ou le site spécialisé <a href="http://www.css-faciles.com/proprietes-css-familles.php" target="blank">css-faciles</a>)</p>
+
+                                                    </div>
+
+                                                    <p>Vous modifierez le fichier CSS (et
+                                                    uniquement ce fichier) pour obtenir la présentation suivante. Il
+                                                    vous sera nécessaire de rechercher dans le lien précédant les
+                                                    propriétés et valeurs associées nécessaires.</p>
+
+                                                    <p>En sachant que</p>
+                                                    <ul>
+                                                        <li>le titre <i>H1</i>
+                                                            est écrit en <i>Arial</i>, en gras, centré
+                                                            et dans la plus grande taille de police</li>
+                                                        <li>le titre <i>H2 </i> est écrit en <i>Arial</i>, centré, les caractères sont en petites capitales
+                                                            et en taille de police moyenne</li>
+                                                        <li>le reste du texte est écrit en <i>Arial</i>, italique,centré, et en taille de police petite et l'espace entre deux paragraphes vaut une demi-taille de ligne (line-height: 50%).</li>
+                                                                            <li>le body de la page est "SkyBlue" </li>
+                                                    </ul>
+
+                                                    <img src="./CSS_files/TD-Sites-Web_html_f39c458.gif" name="images12" align="CENTER" width="100%" border="0/">
+
+                                                    <!--    <P>Une solution est <A HREF="http://atoum.imag.fr/geta/User/didier.schwab/IUT/style-poss1.css">ici</A>
+                                                     et une seconde<A HREF="http://atoum.imag.fr/geta/User/didier.schwab/IUT/style-poss2.css"> là</A></P>-->
+
+                                                    <div class="visu">
+                                                        <h3>En savoir plus</h3>
+                                                        <p>
+                                                        L'idée des CSS date de 1994, leurs
+                                                        premières spécifications officielles datent de 1996-1998 mais il
+                                                        faut attendre 2006 pour qu'<i>Internet Explorer</i> (qui
+                                                        équipe alors environ 90% des machines) ne sache les interpréter
+                                                        correctement.</p>
+
+                                                        </div>
+
+                                                        <ul>
+                                                            <li>Rajouter à gauche la photo de
+                                                                Victor Hugo que l'on trouve sur le site de Wikipedia. Elle doit
+                                                                rester au même endroit de la fenêtre même si on fait défiler le
+                                                                poème.</li>
+                                                            
+                                                            <li>Pour la photo, rajouter une bordure de 4px en pointillé jaune et une marge interne de 10px.</li>
+                                                            
+                                                           
+                                                        </ul>
+
+<!--
+
+                                                    <H1>Les CSS dans Weebly</H1>
+                                                    <UL>
+                                                        <P>Weebly nous offre une bonne centaine
+                                                        de masques différents ce qui est largement suffisant pour une
+                                                        utilisation personnelle simple mais insuffisant pour une utilisation
+                                                        professionnelle. En effet, le site Web d'une entreprise doit
+                                                        refléter son identité graphique. Il va ainsi falloir que nous
+                                                        modifions les CSS de notre site pour obtenir le résultat attendu.</P>
+                                                        <LI>Revenez sur le site que vous avez crée
+                            <LI>En mode édition
+                                                            du site, cliquez sur l'onglet <I>Thème</I>
+                                                            <LI>Cliquez sur<I>
+                                                                Editer HTML/CSS</I></LI>
+                                                      <LI>Modifiez
+                                                                la CSS de telle sorte que l'image que l'on trouve <A HREF="water.gif" target="blank">ici</A>
+                                                                se répète dans le fond de la page.
+                                                            </LI>
+                                                            </UL>
+
+
+
+                                                    <div class="visu">
+                                                        <H3>En savoir plus</H3>
+                                                        <P>
+                                                        De nos jours, il existe une grande variété d'écrans (des
+                                                        téléphones portable aux très grands écrans d'ordinateur) sur
+                                                        lesquels on peut visualiser les pages Web. Leur définition est
+                                                        exprimée en pixels qui sont les points sur l'écran qui affichent
+                                                        une couleur.</P>
+                                                        <P>La
+                                                        taille de l'écran (c-à-d. la longueur de sa diagonale) est
+                                                        exprimée, elle, en pouces (1 pouce (1&quot;) = 2,54cm), et n'est pas
+                                                        nécessairement en rapport avec le nombre de pixels d'un écran.
+                                                        Ainsi, les écrans des téléphones portables les plus récents ont
+                                                        bien plus de pixel qu'une télévision à <A HREF="http://fr.wikipedia.org/wiki/Tube_cathodique" target="blank">tube
+                                                            cathodique</A> : </P>
+                                                        <UL>
+                                                            <LI>
+                                                                Télévision à tube cathodique: 768 ×
+                                                                576 (nombre
+                                                                de pixels sur la ligne ×
+                                                                nombre sur la colonne);</LI>
+                                                            <LI>
+                                                                Téléphones
+                                                                <A HREF="http://fr.wikipedia.org/wiki/IPhone" target="blank">Iphone edge, 3G, 3GS</A> (3,5&quot; ; 480 × 320) <A HREF="http://fr.wikipedia.org/wiki/IPhone" target="blank">Iphone 4 & 4S</A> (3,5&quot; ; 640 ×
+                                                                    960) ; <A HREF="http://fr.wikipedia.org/wiki/Samsung_i9000_Galaxy_S" target="blank">Samsung i9000 Galaxy S<A>, <A HREF="http://fr.wikipedia.org/wiki/Samsung_i9100_Galaxy_S_II" target="blank">Samsung i9100 Galaxy S II</A> (4&quot; ; 480 × 800) ;</LI>
+                                                            <LI>
+                                                                Tablettes Apple <A HREF="http://fr.wikipedia.org/wiki/IPad" target="blank"> Ipad </A>
+                                                                (9,7&quot; ; 1024 × 768 puis 2 048 × 1 536), <A HREF="http://fr.wikipedia.org/wiki/Samsung_Galaxy_Tab" target="blank">Samsung Galaxy Tab 10.1 </A>(10,1&quot; ; 1024×600 et 1280×800),
+                                                                <A HREF="http://en.wikipedia.org/wiki/Archos#Generation_9" target="blank">Archos G9</A> (10,1&quot; ; 1280*800)</LI>
+                                                            <LI>
+                                                                Télévisions haute définition
+                                                                (1920 × 1080)</LI>
+                                                            <LI>    Moniteurs d'ordinateur (jusqu'à
+                                                                2 560 × 1 440)</LI>
+                                                            <P>
+                                                            Wikipedia présente ce récapitulatif des principales
+                                                            tailles d'écrans actuels exprimée en pixels</P>
+
+                                                            <IMG SRC="http://upload.wikimedia.org/wikipedia/commons/e/e5/Vector_Video_Standards2.svg" NAME="images13" ALIGN=CENTER WIDTH=100% BORDER=0/>
+
+                                                            </DIV>
+
+                                                    <div class="visu">
+                                                        <H3>En savoir plus</H3>
+                                                    <P>
+                                                   Le W3C (<A HREF="http://fr.wikipedia.org/wiki/World_Wide_Web_Consortium" target="blank"><I>World
+                                                            Wide Web Consortium</I></A>),
+                                                                créé en 1994 par Tim Berner-Lee est l'organisme chargé de définir
+                                                                les standards du Web (HTML, CSS, <A HREF="http://fr.wikipedia.org/wiki/Extensible_Markup_Language" target="blank">XML</A>,
+                                                                <A HREF="http://fr.wikipedia.org/wiki/SVG" target="blank">SVG</A>,...).
+                                                                    Ces standards sont dits libres (ou <A HREF="http://fr.wikipedia.org/wiki/Format_ouvert" target="blank"> ouverts </A>)
+                                                                        c'est-à-dire que leurs spécifications techniques sont publiques et
+                                                                        sans restriction d'accès ni de mise en œuvre.</P>
+                                                    <P>
+                                                    Certains formats dits propriétaires (ou <A HREF="http://fr.wikipedia.org/wiki/Format_fermé" target="blank">fermés</A>)
+                                                            pourtant très utilisés ne font pas partie des <A HREF="http://fr.wikipedia.org/wiki/Standards_du_Web" target="blank">standards
+                                                                du Web</A>.
+                                                                    Dans ce cas, pour pouvoir fabriquer un logiciel capable de les lire,
+                                                                    il faut payer une redevance. C'est le cas des fichiers <A HREF="http://fr.wikipedia.org/wiki/ZIP_(format_de_fichier) target="blank"">zip</A>
+                                                                        ou du <A HREF="http://fr.wikipedia.org/wiki/Adobe_Flash" target="blank">Flash</A>
+                                                                            par exemple. C'est d'ailleurs pourquoi il est contesté par les promoteurs de l'informatique libre (voir <A HREF="http://www.april.org/fr/pas-de-flash" target="blank">la position de l'April</A>). C'est également une des raisons avancée par Apple qui refuse de permettre son installation sur ses terminaux mobiles.</P>
+                                                        </div>
+
+
+
+                                                         Partie sur Wordpress pour les info com 
+                                                        <H1>CMS Wordpress</H1>
+
+                                                        <P>
+                                                          Une version application Web est disponible pour WordPress. Avec possibilité de créer un site gratuitement,
+                                                          (si sous-domaine de wordpress).
+                                                        </P>
+
+                                                        <p>Il faut d'abord se créer un compte : </p>
+
+                                                        <IMG SRC="wordpress_1.png" NAME="wordpress_1" ALIGN=CENTER WIDTH=100% BORDER=0>
+
+                                                          <p>Choisir le type de site à créer (on choisira Blog) : </p>
+
+                                                          <IMG SRC="wordpress_2.png" NAME="wordpress_2" ALIGN=CENTER WIDTH=100% BORDER=0>
+
+                                                          <p>Entrer le thème de votre Blog (ici, littérature pour la jeunesse par exemple) : </p>
+                                                            <IMG SRC="wordpress_3.png" NAME="wordpress_3" ALIGN=CENTER WIDTH=100% BORDER=0>
+
+                                                              <p>Entrer le domaine (URL) de votre blog (y ajouter .wordpress.com pour avoir un domaine gratuit) : </p>
+                                                              <IMG SRC="wordpress_4.png" NAME="wordpress_4" ALIGN=CENTER WIDTH=100% BORDER=0>
+
+                                                                <p>Choisir de "commencer avec un site gratuit" : </p>
+                                                                <IMG SRC="wordpress_5.png" NAME="wordpress_5" ALIGN=CENTER WIDTH=100% BORDER=0>
+
+                                                                    <p>Vous pouvez ensuite créer des pages et les modifier visuellement ou les modifier en HTML </p>
+
+
+                                                                  <IMG SRC="wordpress_6.png" NAME="wordpress_6" ALIGN=CENTER WIDTH=100% BORDER=0>
+
+
+
+-->
+                                                <h1>Exercice HTML &amp; CSS</h1>
+                                                
+                                                <h4> Schéma d'exercice </h4>
+                                                <img src="./CSS_files/schema-magasins.png" alt="schema magasins" width="400px" height="200px">
+                                                <p> Créez un site Web simple où vous devrez présenter des différents magasins qui vendent des vêtements de sport. </p>
+                                                
+                                                <ul>
+                                                    
+                                                    <li>
+                                                        Il y aura une page d'accueil avec un bar de navigation en haut de la page web, avec les 4 magasins différents (mettre les liens vers les 4 pages des magasins dans une section div). Au moment où je clique sur le nom d’un des magasins, je veux accéder à la page appropriée de ce magasin. Ajoutez quelques photos (et placez-les dans des différentes parties de la page de manière agréable). Utilisez pour cela les éléments CSS dont nous avons parlé aujourd'hui (et au cours du premier semestre).
+                                                    </li>
+                                                    
+                                                <li>    Pour le premier magasin on doit avoir une division avec: <br>
+                                                    - un titre de troisième niveau <br> - une image (image-ex.jpg)  d'une largeur de 300 et d'une hauteur de 200 <br> - un paragraphe le décrivant. <br>
+                                                    (Pour la partie CSS) <br>
+                                                    - Mettez la photo en haut à gauche avec une bordure de 2px d’un trait continu rouge.&nbsp;
+
+                                                    
+                                                    </li>
+                                                    
+                                                    
+<li>
+Pour le deuxième magasin on doit avoir une division avec:<br> - un titre de troisième niveau <br>
+- une liste à puces avec plusieurs produits qu’on peut trouver dans ce magasin (chaussures, T-shirts, etc.)
+                                                    </li>
+                          <li>                          
+Pour le troisième magasin on doit avoir une division avec:<br> - un titre de troisième niveau 
+                              <br>
+- un paragraphe le décrivant 
+                                                    </li>
+                                                    
+                                                    <li>
+Pour le quatrième magasin on doit avoir une division avec:
+                                                        <br>- un titre de troisième niveau
+                                                        <br>- une image qui montre l’emplacement de ce magasin (image-emplacement.jpg) d'une largeur de 500 et d'une hauteur de 500  <br>
+                                                        - un paragraphe le décrivant 
+                                                    </li>
+                                                    
+                                                </ul>
+                                                
+                                                <h4>  Partie CSS (pour toutes les pages) </h4>
+                                                <p>
+ - les titres de troisième niveau doivent être écrits en bleu avec un couleur de fond gris 
+<br>- les paragraphes devront avoir une marge interne de 40 px et devront être écrits en rouge
+<br>- seulement le paragraphe du troisième magasin doit être écrit en bleu et doit avoir une taille de police 30px
+                                                </p>
+
+
+
+                                                        <h1>Webographie</h1>
+                                                    <p>
+                                                    <span style="font-style: normal">Internet
+                                                    </span><a href="http://fr.wikipedia.org/wiki/Internet"><span style="font-style: normal">http://fr.wikipedia.org/wiki/Internet</span></a></p>
+                                                    <p>
+                                                    <span style="font-style: normal">Histoire d'Internet
+                                                    </span><a href="http://fr.wikipedia.org/wiki/Histoire_d&#39;Internet">http://fr.wikipedia.org/wiki/Histoire_d'Internet</a></p>
+                                                    <p>
+                                                    <span style="font-style: normal">Le Web
+                                                    </span><a href="http://fr.wikipedia.org/wiki/World_Wide_Web"><span style="font-style: normal">http://fr.wikipedia.org/wiki/World_Wide_Web</span></a></p>
+                                                    <p lang="zxx" align="JUSTIFY" style="margin-top: 0.2cm; margin-bottom: 0.2cm; font-style: normal">
+                                                    L'informatique au CERN</p>
+                                                    <p>
+                                                    <a href="http://fr.wikipedia.org/wiki/Organisation_europ%C3%A9enne_pour_la_recherche_nucl%C3%A9aire#Informatique_au_CERN"><span style="font-style: normal">http://fr.wikipedia.org/wiki/Organisation_européenne_pour_la_recherche_nucléaire#Informatique_au_CERN</span></a></p>
+                                                    <p>
+                                                    <span style="font-style: normal">Comparatif navigateurs : qui est le
+                                                        meilleur ?
+                                                    </span><a href="http://www.clubic.com/article-282232-1-comparatif-internet-explorer-firefox-opera-safari.html"><span style="font-style: normal">http://www.clubic.com/article-282232-1-comparatif-internet-explorer-firefox-opera-safari.html</span></a><span style="font-style: normal">
+                                                    </span>
+                                                    </p>
+                                                    <p>
+                                                    <span style="font-style: normal">Part de marché des navigateurs
+                                                    </span><a href="http://gs.statcounter.com/"><span style="font-style: normal">http://gs.statcounter.com/</span></a></p>
+                                                    <p>
+                                                    <span style="font-style: normal">Le langage HTML
+                                                    </span><a href="http://fr.wikipedia.org/wiki/Hypertext_Markup_Language"><span style="font-style: normal">http://fr.wikipedia.org/wiki/Hypertext_Markup_Language</span></a></p>
+                                                    <p>
+                                                    <span style="font-style: normal">Tutorial sur le HTML
+                                                    </span><a href="http://fr.html.net/tutorials/html/"><span style="font-style: normal">http://fr.html.net/tutorials/html/</span></a></p>
+                                                    <p>
+                                                    <span style="font-style: normal">Les couleurs du Web
+                                                    </span><a href="http://fr.wikipedia.org/wiki/Couleurs_du_Web"><span style="font-style: normal">http://fr.wikipedia.org/wiki/Couleurs_du_Web</span></a><span style="font-style: normal">
+                                                    </span>
+                                                    </p>
+                                                    <p>
+                                                    <span style="font-style: normal">Les attributs en HTML
+                                                    </span><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Attributs"><span style="font-style: normal">https://developer.mozilla.org/fr/docs/Web/HTML/Attributs</span></a></p>
+                                                    <p lang="zxx" align="JUSTIFY" style="margin-top: 0.2cm; margin-bottom: 0.2cm; font-style: normal">
+                                                    Les systèmes de gestion de contenu
+                                                    </p>
+                                                    <p>
+                                                    <span style="font-style: normal">Les feuilles de style en cascade
+                                                        (css) </span><a href="http://fr.selfhtml.org/css/"><span style="font-style: normal">http://fr.selfhtml.org/css/</span></a></p>
+                                                    <p>
+                                                    <span style="font-style: normal">Tutoriel CSS
+                                                    </span><a href="http://fr.html.net/tutorials/css/"><span style="font-style: normal">http://fr.html.net/tutorials/css/</span></a></p>
+                                                    <p>
+                                                    <span style="font-style: normal">Liste des propriétés CSS
+                                                    </span><a href="https://openclassrooms.com/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1608902-memento-des-proprietes-css"><span style="font-style: normal">https://openclassrooms.com/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1608902-memento-des-proprietes-css</span></a><span style="font-style: normal">
+                                                    </span>
+                                                    </p>
+                                                    <p>
+                                                    <span style="font-style: normal">Faits marquants css (en anglais)
+                                                    </span><a href="http://webilus.fr/illustration/histoire-et-faits-marquants-sur-les-css"><span style="font-style: normal">http://webilus.fr/illustration/histoire-et-faits-marquants-sur-les-css</span></a><span style="font-style: normal">
+                                                    </span>
+                                                    </p>
+                                                    <p>
+                                                    <span style="font-style: normal">Interview sur la création des css
+                                                        et le W3C
+                                                    </span><a href="http://www.gralon.net/articles/internet-et-webmaster/creation-site-internet/article-interview-de-bert-bos---histoire-et-evolutions-du-css-988.htm"><span style="font-style: normal">http://www.gralon.net/articles/internet-et-webmaster/creation-site-internet/article-interview-de-bert-bos---histoire-et-evolutions-du-css-988.htm</span></a><span style="font-style: normal">
+                                                    </span>
+                                                    </p>
+                                                    <p>
+                                                    <span style="font-style: normal">Site Web du W3C </span><a href="http://www.w3.org/"><span style="font-style: normal">http://www.w3.org/</span></a></p>
+                                                    <p>
+                                                    CSS zen garden : le même site à travers un certain nombre d'exemple de css <a href="http://www.csszengarden.com/" target="_Blank">http://www.csszengarden.com</a>
+                                                    </p>
+
+                                                    
+
+</subtitle><div id="gadsf21g"></div></body></html>
